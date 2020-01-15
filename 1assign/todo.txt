@@ -2,9 +2,10 @@
 1b check
 
 2a `ask TA or Professor`
-2b
+2b 
 
 3
 
 4a check
-4b 
+4b check
+4c check

@@ -39,16 +39,38 @@ if __name__ == '__main__':
 
     x = list(range(0,256)) # x-axis
     y = makeHisto(img) # histogram of img
-    z = equalizeHisto(y) # equalized histogram
+    z = equalizeHisto(y)
 
+    enhanced_img = equalizeImage(img)
+    y2 = makeHisto(enhanced_img)
+
+    ## HISTOGRAM ##
     fig, axes = plt.subplots(2)
-    axes[0].set_title('Histogram')
+    # plot histogram
+    axes[0].set_title('Original Histogram')
     axes[0].bar(x,y)
-
-    axes[1].set_title('Equalized Histogram')
-    axes[1].bar(x,z)
+    # plot equalized histogram
+    axes[1].set_title('Enhanced Histogram')
+    axes[1].bar(x,y2)
 
     fig.subplots_adjust(hspace=0.5)
+
+    ## IMAGES ##
+    fig2, axes2 = plt.subplots(2)
+    axes2[0].set_title('Original Image')
+    axes2[0].imshow(img, cmap='gray')
+
+    axes2[1].set_title('Enhanced Image')
+    axes2[1].imshow(enhanced_img, cmap='gray')
+
+    fig2.subplots_adjust(hspace=0.5)
+
+    fig3, axes3 = plt.subplots(1)
+    axes3.set_title('Histogram-Equalization Transformation Function')
+    axes3.plot(x,z*255)
+
     plt.show()
+    
+
 
 
