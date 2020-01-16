@@ -13,25 +13,26 @@ def reduceIntensity(img, val):
     else:
         return np.floor(img/(256/val))
 
-# read file image into numpy array
-img_orig = plt.imread('../images/Fig2.21(a).jpg', 0)
+if __name__ == '__main__':
+    # read file image into numpy array
+    img_orig = plt.imread('../images/Fig2.21(a).jpg', 0)
 
-# setup figure
-fig = plt.figure(figsize=(10,30))
-fig.suptitle('')
-plt.rcParams.update({'font.size': 7})
+    # setup figure
+    fig = plt.figure(figsize=(10,30))
+    fig.suptitle('')
+    plt.rcParams.update({'font.size': 7})
 
-# reduce orig_img by powers of 2 and plot resulting images
-for i in range(0,8):
-    img = reduceIntensity(img_orig, 256/(2**i))
-    ax = fig.add_subplot(8,2,i+1, frameon=False)
-    ax.get_xaxis().set_visible(False)
-    ax.get_yaxis().set_visible(False)
-    ax.title.set_text("{} gray levels".format(int(256/(2**i))))
-    ax = plt.imshow(img, cmap='gray')
-    
-# spacing adjustment
-plt.subplots_adjust(wspace= -0.5, hspace=0.1)
-plt.show()
+    # reduce orig_img by powers of 2 and plot resulting images
+    for i in range(0,8):
+        img = reduceIntensity(img_orig, 256/(2**i))
+        ax = fig.add_subplot(8,2,i+1, frameon=False)
+        ax.get_xaxis().set_visible(False)
+        ax.get_yaxis().set_visible(False)
+        ax.title.set_text("{} gray levels".format(int(256/(2**i))))
+        ax = plt.imshow(img, cmap='gray')
+        
+    # spacing adjustment
+    plt.subplots_adjust(wspace= -0.5, hspace=0.1)
+    plt.show()
 
 
