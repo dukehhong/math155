@@ -30,7 +30,7 @@ for i in range(3, max_y):
     for j in range(3, max_x):
         result[i][j] = calcMedian(img, 3, i, j)
 
-# plt.imshow(img, cmap='gray')
-# plt.show()
+plt.imshow(img, cmap='gray')
+plt.show()
 plt.imshow(result, cmap='gray')
 plt.show()
